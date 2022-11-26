@@ -38,16 +38,9 @@ export default function Todo() {
     setlist(e);
   };
   const deleteOption = (item) => {
-    const index = list
-      .map((id) => {
-        return id.title;
-      })
-      .indexOf(item);
-    console.log(index);
-    list.splice(index, 1);
-    setlist(list);
+    setlist(list.filter((element) => element.title !== item.title));
   };
-  console.log(date);
+
   return (
     <div className="mx-auto justify-center h-screen w-full overflow-scroll ">
       <div className="text-2xl text-center font-bold sticky top-0 z-20  flex justify-center bg-yellow-400">
@@ -76,7 +69,7 @@ export default function Todo() {
               delete={
                 <AiOutlineCloseCircle
                   onClick={() => {
-                    deleteOption(curr.title);
+                    deleteOption(curr);
                   }}
                 />
               }
