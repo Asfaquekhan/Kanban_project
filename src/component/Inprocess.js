@@ -52,7 +52,7 @@ export default function Inprocess() {
     return item;
   };
   return (
-    <div className="mx-auto justify-center max-h-screen w-full overflow-scroll ">
+    <div className="mx-auto justify-center h-screen w-full overflow-scroll ">
       <div className="text-2xl text-center font-bold sticky top-0 z-50  flex justify-center  bg-slate-200">
         <h1 className="text-center font-mono">
           {" "}
