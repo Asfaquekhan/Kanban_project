@@ -7,11 +7,10 @@ const postSlice =createSlice({
     name:'post',
     initialState,
     reducers:{
-          additon: (state)=>{
-            const e=[{
-
-            }]
-            return [...state,e]
+          additon: (state,value)=>{
+          const index = state.map((id)=>{ return id.title}).indexOf(value)
+          state.splice(index,1)
+          return state
           }      
     }
 })

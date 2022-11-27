@@ -5,8 +5,10 @@ export default function Card(props) {
   <div className='block border-2 '>
     <div className='flex justify-between'>
         <h1 className={`mb-2  font-medium tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-5 py-2 mr-2  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 p-2 m-2 ${props.bgColor}`}>{props.title}</h1>
-        <div className='flex'>
-        <p className='p-1 m-1'>{props.edit}</p>
+        <div className='flex items-center'>
+        <p className='mb-2 font-serif tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-5 py-2 mr-2  p-2 m-2 bg-red-500'>{props.priority}</p>
+        <p className='p-1 m-1' onClick={props.editFunction}>{props.edit}</p>
+        
         <p className='p-1 m-1'>{props.delete}</p>
         <p className='p-1 m-1'>{props.done}</p>
 
