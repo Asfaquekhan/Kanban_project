@@ -13,7 +13,7 @@ export default function Todo() {
   const [color, setcolor] = useState("bg-red-200");
   const [warn, setwarn] = useState(false);
   const [date, setdate] = useState();
-  const [Priority, setpriority] = useState();
+  const [Priority, setpriority] = useState(["","white"]);
   const todolist = [
     {
       title: "Learn Node.js",
@@ -39,7 +39,7 @@ export default function Todo() {
         PriorityLevel: Priority,
       };
 
-      e = [...list, value];
+      e = [value,...list];
       setlist(e);
     } else {
       setwarn(true);
@@ -75,33 +75,7 @@ export default function Todo() {
           <GrAddCircle size={20} />
         </button>
       </div>
-      {list.map((curr, pos) => {
-        return (
-          <div key={pos}>
-            <Card
-              priority={curr.PriorityLevel[0]}
-              typecolor={curr.PriorityLevel[1]}
-              editFunction={() => {
-                editoption(curr);
-              }}
-              date={curr.target}
-              title={curr.title}
-              des={curr.description}
-              bgColor={curr.backg}
-              delete={
-                <AiOutlineCloseCircle
-                  onClick={() => {
-                    deleteOption(curr.title);
-                  }}
-                />
-              }
-              edit={<AiOutlineEdit />}
-              done={<MdDone />}
-            />
-          </div>
-        );
-      })}
-
+      <div>
       <Input
         warns={warn}
         displays={display}
@@ -143,6 +117,35 @@ export default function Todo() {
           setpriority(["high", "bg-red-500"]);
         }}
       />
+      </div>
+      {list.map((curr, pos) => {
+        return (
+          <div key={pos}>
+            <Card
+              priority={curr.PriorityLevel[0]}
+              typecolor={curr.PriorityLevel[1]}
+              editFunction={() => {
+                editoption(curr);
+              }}
+              date={curr.target}
+              title={curr.title}
+              des={curr.description}
+              bgColor={curr.backg}
+              delete={
+                <AiOutlineCloseCircle
+                  onClick={() => {
+                    deleteOption(curr.title);
+                  }}
+                />
+              }
+              edit={<AiOutlineEdit />}
+              done={<MdDone />}
+            />
+          </div>
+        );
+      })}
+
+     
     </div>
   );
 }

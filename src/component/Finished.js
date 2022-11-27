@@ -14,7 +14,7 @@ export default function Finished() {
   const [color, setcolor] = useState("bg-red-200");
   const [warn, setwarn] = useState(false);
   const [date,setdate]=useState()
-  const [Priority,setpriority]=useState()
+  const [Priority,setpriority]=useState(["","white"])
 
   const addnote = (e) => {
     if (note.length > 1) {
@@ -27,7 +27,7 @@ export default function Finished() {
          
       };
 
-      e = [...list, value];
+      e = [value,...list];
       setlist(e);
     } else {
       setwarn(true);
@@ -64,6 +64,25 @@ export default function Finished() {
           <GrAddCircle size={20} />
         </button>
       </div>
+      <div>
+      <Input 
+       warns={warn}
+       displays={display}
+       warn={() => { setwarn(false); }}
+       color1={() => {setcolor("bg-red-200");}}
+       color2={() => {setcolor("bg-green-200");}}
+       color3={() => {setcolor("bg-yellow-200");}}
+       color4={() => { setcolor("bg-cyan-200");}}
+       displayset={() => {setdisplay(false);}}
+       titleset={(e) => {setnote(e.target.value);}}
+       desset={(e) => {setdes(e.target.value);}}
+       addnote={addnote}
+       date={(e) => {setdate(e.target.value);}}
+       low={() => {setpriority(["low","bg-yellow-500"]);}}
+       medium={() => {setpriority(["medium","bg-green-500"]);}}
+       high={() => {setpriority(["high","bg-red-500"]);}}
+       />
+      </div>
       {list.map((curr, pos) => {
         return (
           <div key={pos}>
@@ -88,23 +107,7 @@ export default function Finished() {
         );
       })}
      
-       <Input 
-       warns={warn}
-       displays={display}
-       warn={() => { setwarn(false); }}
-       color1={() => {setcolor("bg-red-200");}}
-       color2={() => {setcolor("bg-green-200");}}
-       color3={() => {setcolor("bg-yellow-200");}}
-       color4={() => { setcolor("bg-cyan-200");}}
-       displayset={() => {setdisplay(false);}}
-       titleset={(e) => {setnote(e.target.value);}}
-       desset={(e) => {setdes(e.target.value);}}
-       addnote={addnote}
-       date={(e) => {setdate(e.target.value);}}
-       low={() => {setpriority(["low","bg-yellow-500"]);}}
-       medium={() => {setpriority(["medium","bg-green-500"]);}}
-       high={() => {setpriority(["high","bg-red-500"]);}}
-       />
+      
       </div>
    
   );

@@ -6,7 +6,7 @@ export default function Input(props) {
       <div
         className={
             props.warns
-            ? `p-4 flex justify-around mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800`
+            ? ` p-4 flex justify-around mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800`
             : "hidden"
         }
         role="alert"
@@ -77,16 +77,16 @@ export default function Input(props) {
           onChange={props.desset}
         />
         <div>
-        <h1 className='text-center font-medium'>Choose Priority level</h1>
+        <h1 className='block mb-2 font-medium text-gray-900 dark:text-white'>Choose Priority level</h1>
         <div className='flex justify-around'>
             
-            <button onClick={props.low} className='mb-2 font-serif tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-5 py-2 mr-2  p-2 m-2 bg-yellow-500'>low</button>
-            <button onClick={props.medium} className='mb-2 font-serif tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-5 py-2 mr-2  p-2 m-2 bg-green-500 '>medium</button>
-            <button onClick={props.high} className='mb-2 font-serif tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-5 py-2 mr-2  p-2 m-2 bg-red-500'>high</button>
+            <button onClick={props.low} className='mb-2 text-xs tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-3 py-2 mr-2 items-center bg-yellow-500'>low</button>
+            <button onClick={props.medium} className='mb-2 text-xs tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-3 py-2 mr-2 items-center bg-green-500 '>medium</button>
+            <button onClick={props.high} className='mb-2 text-xs tracking-tight  border-gray-300 focus:outline-none  focus:ring-4 focus:ring-gray-200  rounded-lg  px-3 py-2 mr-2 items-center bg-red-500'>high</button>
         </div>
         </div>
-       <div>
-       <input type="date" name="" id="" onChange={props.date} />
+       <div className=''>
+       <span className='block mb-2 font-medium text-gray-900 dark:text-white'>Target Date</span><input type="date" name="" id="" onChange={props.date} />
        </div>
         
         <button
