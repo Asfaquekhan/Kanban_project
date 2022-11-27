@@ -23,7 +23,8 @@ export default function Finished() {
         description: des,
         backg: color,
         target:date,
-        PriorityLevel:Priority
+        PriorityLevel: Priority
+         
       };
 
       e = [...list, value];
@@ -47,7 +48,7 @@ export default function Finished() {
   }
   return (
     <div className="mx-auto justify-center max-h-screen w-full overflow-scroll ">
-      <div className="text-2xl text-center font-bold sticky top-0 z-50  flex justify-center ">
+      <div className="text-2xl text-center font-bold sticky top-0 z-50  flex justify-center  bg-slate-200">
         <h1 className="text-center font-mono">
           {" "}
           Finished <span className="font-extralight">{list.length}</span>
@@ -67,7 +68,8 @@ export default function Finished() {
         return (
           <div key={pos}>
             <Card
-            priority={curr.PriorityLevel}
+            priority={curr.PriorityLevel[0]}
+            typecolor={curr.PriorityLevel[1]}
             editFunction={(()=>{editoption(curr)})}
             date={curr.target}
               title={curr.title}
@@ -99,9 +101,9 @@ export default function Finished() {
        desset={(e) => {setdes(e.target.value);}}
        addnote={addnote}
        date={(e) => {setdate(e.target.value);}}
-       low={() => {setpriority("low");}}
-       medium={() => {setpriority("medium");}}
-       high={() => {setpriority("high");}}
+       low={() => {setpriority(["low","bg-yellow-500"]);}}
+       medium={() => {setpriority(["medium","bg-green-500"]);}}
+       high={() => {setpriority(["high","bg-red-500"]);}}
        />
       </div>
    
