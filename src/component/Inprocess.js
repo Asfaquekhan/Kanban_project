@@ -4,16 +4,8 @@ import { AiOutlineCloseCircle, AiOutlineEdit } from "react-icons/ai";
 import { GrAddCircle } from "react-icons/gr";
 import Card from "./Card";
 import { MdDone } from "react-icons/md";
-import Input from "./Input";
 export default function Inprocess() {
-  const [display, setdisplay] = useState(false);
-
-  const [note, setnote] = useState("");
-  const [des, setdes] = useState("");
-  const [color, setcolor] = useState("bg-red-200");
-  const [warn, setwarn] = useState(false);
-  const [date, setdate] = useState();
-  const [Priority, setpriority] = useState(["","white"]);
+  
   const todolist = [
     {
       title: "Master React.js",
@@ -23,22 +15,7 @@ export default function Inprocess() {
     },
   ];
   const [list, setlist] = useState(todolist);
-  const addnote = (e) => {
-    if (note.length > 1) {
-      const value = {
-        title: note,
-        description: des,
-        backg: color,
-        target: date,
-        PriorityLevel: Priority,
-      };
-
-      e = [value,...list];
-      setlist(e);
-    } else {
-      setwarn(true);
-    }
-  };
+  
   const deleteOption = (item) => {
     setlist(
       list.filter((element) => {
@@ -61,57 +38,13 @@ export default function Inprocess() {
 
         <button
           type="button"
-          className={display ? "hidden" : "items-center ml-12"}
-          onClick={() => {
-            setdisplay(true);
-          }}
+          className={"items-center ml-12"}
+         
         >
           <GrAddCircle size={20} />
         </button>
       </div>
-      <div>
-      <Input
-        warns={warn}
-        displays={display}
-        warn={() => {
-          setwarn(false);
-        }}
-        color1={() => {
-          setcolor("bg-red-200");
-        }}
-        color2={() => {
-          setcolor("bg-green-200");
-        }}
-        color3={() => {
-          setcolor("bg-yellow-200");
-        }}
-        color4={() => {
-          setcolor("bg-cyan-200");
-        }}
-        displayset={() => {
-          setdisplay(false);
-        }}
-        titleset={(e) => {
-          setnote(e.target.value);
-        }}
-        desset={(e) => {
-          setdes(e.target.value);
-        }}
-        addnote={addnote}
-        date={(e) => {
-          setdate(e.target.value);
-        }}
-        low={() => {
-          setpriority(["low", "bg-yellow-500"]);
-        }}
-        medium={() => {
-          setpriority(["medium", "bg-green-500"]);
-        }}
-        high={() => {
-          setpriority(["high", "bg-red-500"]);
-        }}
-      />
-      </div>
+    
       {list.map((curr, pos) => {
         return (
           <div key={pos}>
@@ -133,7 +66,7 @@ export default function Inprocess() {
                 />
               }
               edit={<AiOutlineEdit />}
-              done={<MdDone />}
+              done={<MdDone onClick={()=>{console.log("Done")}}/>}
             />
           </div>
         );

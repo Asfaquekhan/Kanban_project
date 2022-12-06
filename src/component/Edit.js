@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Addform() {
+export default function Edit() {
   return (
     <div>
       

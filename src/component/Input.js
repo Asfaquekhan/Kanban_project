@@ -23,7 +23,7 @@ export default function Input(props) {
       </div>
       <div
         className={
-          props.displays
+          false
             ? "w-full block mx-auto border-stone-700 p-2 m-2 sticky top-0"
             : "hidden"
         }
