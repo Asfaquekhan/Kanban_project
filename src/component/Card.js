@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 export default function Card(props) {
   return (
   <div className='block border-2 '>
@@ -8,7 +10,7 @@ export default function Card(props) {
         <div className='flex items-center'>
        
         <p className='p-1 m-1' onClick={props.editFunction}>{props.edit}</p>
-        
+       
         <p className='p-1 m-1'>{props.delete}</p>
         <p className='p-1 m-1'>{props.done}</p>
 
